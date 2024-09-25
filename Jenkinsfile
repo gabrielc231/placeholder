@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOTNET_CLI_HOME = "/usr/lib/dotnet"
+        DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
+        HOME = "/tmp"
     }
 
     stages {
