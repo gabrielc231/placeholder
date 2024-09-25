@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
         HOME = "/tmp"
+        DOTNET_NUGET_SIGNATURE_VERIFICATION = false
     }
 
     stages {
