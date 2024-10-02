@@ -19,5 +19,14 @@ public class FileService
         return await _fileRepository.GetAllFilesAsync();
     }
 
+    public async Task<FileModel> GetFileByIdAsync(int id)
+    {
+        return await _fileRepository.GetFileByIdAsync(id);
+    }
+
     // Add other business logic methods here...
+    public async Task AddFileAsync(FileModel file)
+    {
+        await _fileRepository.AddFileAsync(file);
+    }
 }
