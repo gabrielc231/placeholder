@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Running tests
-                    sh "dotnet test --no-restore --configuration Test"
+                    sh "dotnet test --no-restore --configuration Release"
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     // Publishing the application
-                    sh "dotnet run --no-build --configuration Test"
+                    sh "dotnet run --no-build --configuration Release"
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
 
     post {
         success {
-            echo 'Build, test, and publish successful!'
+            echo 'Test, and Run successful!'
         }
     }
 }
