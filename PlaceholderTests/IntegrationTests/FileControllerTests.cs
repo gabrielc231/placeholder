@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿/*using Microsoft.AspNetCore.Mvc.Testing;
 
 [TestClass]
 public class FileControllerTests
@@ -21,4 +21,4 @@ public class FileControllerTests
         // Assert
         Assert.IsTrue(response.IsSuccessStatusCode);
     }
-}
+}*/

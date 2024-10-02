@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using placeholder.Models;
 
-namespace YourApp.Tests.UnitTests
+namespace placeholder.Tests.UnitTests
 {
     [TestClass]
     public class FileRepositoryTests
