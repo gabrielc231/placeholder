@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Running tests
-                    sh "dotnet test --no-build --configuration Test"
+                    sh "dotnet test --no-restore --configuration Test"
                 }
             }
         }
