@@ -13,8 +13,16 @@ pipeline {
                 checkout scm
             }
         }
-
-
+		stage('Restore') {
+			steps {
+				script {
+					// Restoring dependencies
+                    //sh "cd ${DOTNET_CLI_HOME} && dotnet restore"
+                    sh "dotnet restore"
+				}
+			}
+		}
+		
         stage('Test') {
             steps {
                 script {
