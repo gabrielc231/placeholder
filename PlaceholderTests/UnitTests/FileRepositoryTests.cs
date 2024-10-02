@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using placeholder.Models;
+using placeholder.Models;
 
 namespace placeholder.Tests.UnitTests
 {
