@@ -47,6 +47,26 @@ namespace placeholder.Tests.UnitTests
         }
 
         [TestMethod]
+        public async Task ShouldFail()
+        {
+            // Arrange - adicionar dados ao contexto InMemory
+            var file1 = new FileModel { FileName = "file1.txt", FilePath = "/uploads/file1.txt" };
+            var file2 = new FileModel { FileName = "file2.txt", FilePath = "/uploads/file2.txt" };
+
+            // Act - recupera todos os arquivos
+            var result = await _fileRepository.GetAllFilesAsync();
+
+            Assert.AreEqual(3, result.Count);
+            await _fileRepository.AddFileAsync(file1);
+            await _fileRepository.AddFileAsync(file2);
+
+            // Assert - verifica se os arquivos foram retornados corretamente
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("file1.txt", result[0].FileName);
+            Assert.AreEqual("file2.txt", result[1].FileName);
+        }
+
+        [TestMethod]
         public async Task GetFileByIdAsync_ShouldReturnCorrectFile()
         {
             // Arrange - adicionar dados ao contexto InMemory
@@ -77,6 +97,7 @@ namespace placeholder.Tests.UnitTests
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual("file3.txt", result[0].FileName);
         }
+
 
         [TestCleanup]
         public void Cleanup()
