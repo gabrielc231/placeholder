@@ -13,16 +13,20 @@ pipeline {
                 checkout scm
             }
         }
-		stage('Restore') {
-			steps {
-				script {
-					// Restoring dependencies
+
+        stage('Build') {
+            steps {
+                script {
+                    // Restoring dependencies
                     //sh "cd ${DOTNET_CLI_HOME} && dotnet restore"
                     sh "dotnet restore"
-				}
-			}
-		}
-		
+
+                    // Building the application
+                    sh "dotnet build --configuration Release"
+                }
+            }
+        }
+
         stage('Test') {
             steps {
                 script {
@@ -32,11 +36,11 @@ pipeline {
             }
         }
 
-        stage('Run') {
+        stage('Publish') {
             steps {
                 script {
                     // Publishing the application
-                    sh "dotnet run --no-build --configuration Release"
+                    sh "dotnet publish --no-restore --configuration Release --output .\\publish"
                 }
             }
         }
@@ -44,7 +48,7 @@ pipeline {
 
     post {
         success {
-            echo 'Test, and Run successful!'
+            echo 'Build, test, and publish successful!'
         }
     }
 }
